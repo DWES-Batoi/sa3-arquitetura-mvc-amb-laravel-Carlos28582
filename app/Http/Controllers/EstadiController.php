@@ -22,7 +22,7 @@ class EstadiController extends Controller {
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom' => 'requiered|min:3',
+            'nom' => 'required|min:3',
             'ciutat' => 'required',
             'capacitat' => 'required|integer|min:0',
             'equip' => 'required',
@@ -33,4 +33,13 @@ class EstadiController extends Controller {
 
         return redirect()->route('estadis.index')->with('success', 'Estadi afegit correctament');
     }
+
+    public function show(int $id)
+    {
+        $estadis = Session::get('estadis', $this->estadis);
+        abort_if(!isset($estadis[$id]), 404);
+        $estadi = $estadis[$id];
+        return view('estadis.store', compact('estadi'));
+    }
+
 }

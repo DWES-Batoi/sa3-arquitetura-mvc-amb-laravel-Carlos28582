@@ -19,12 +19,16 @@
     <input type="text" name="nom" id="nom" value="{{ old('nom') }}" class="border p-2 w-full">
   </div>
   <div>
-    <label for="ciutat" class="block font-bold">Estadi:</label>
+    <label for="ciutat" class="block font-bold">Ciutat:</label>
     <input type="text" name="ciutat" id="ciutat" value="{{ old('ciutat') }}" class="border p-2 w-full">
   </div>
   <div>
-    <label for="capacitat" class="block font-bold">Títols:</label>
+    <label for="capacitat" class="block font-bold">Capacitat:</label>
     <input type="number" name="capacitat" id="titols" value="{{ old('titols') }}" class="border p-2 w-full">
+  </div>
+   <div>
+    <label for="capacitat" class="block font-bold">Equip:</label>
+    <input type="text" name="equip" id="equip" value="{{ old('capacitat') }}" class="border p-2 w-full">
   </div>
   <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Afegir</button>
 </form>
