@@ -1,46 +1,32 @@
-<?php
+@extends('layouts.app')
+@section('title', 'Afegir nou jugadora')
 
-namespace App\Http\Controllers;
+@section('content')
+<h1 class="text-2xl font-bold mb-4">Afegir nou jugadora</h1>
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
-class EquipController extends Controller
-{
-    public $equips = [
-        ['nom' => 'Barça Femení',      'estadi' => 'Camp Nou',               'titols' => 30],
-        ['nom' => 'Atlètic de Madrid',  'estadi' => 'Cívitas Metropolitano',  'titols' => 10],
-        ['nom' => 'Real Madrid Femení', 'estadi' => 'Alfredo Di Stéfano',     'titols' => 5],
-    ];
+@if ($errors->any())
+  <div class="bg-red-100 text-red-700 p-2 mb-4">
+    <ul>
+      @foreach ($errors->all() as $error) <li>{{ $error }}</li> @endforeach
+    </ul>
+  </div>
+@endif
 
-    public function index()
-    {
-        $equips = Session::get('equips', $this->equips);
-        return view('equips.index', compact('equips'));
-    }
-
-    public function show(int $id)
-    {
-        $equips = Session::get('equips', $this->equips);
-        abort_if(!isset($equips[$id]), 404);
-        $equip = $equips[$id];
-        return view('equips.show', compact('equip'));
-    }
-
-    public function create() { return view('equips.create'); }
-
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nom'    => 'required|min:3',
-            'estadi' => 'required',
-            'titols' => 'required|integer|min:0',
-        ]);
-
-        $equips = Session::get('equips', $this->equips);
-        $equips[] = $validated;
-        Session::put('equips', $equips);
-
-        return redirect()->route('equips.index')->with('success', 'Equip afegit correctament!');
-    }
-}
+<form action="{{ route('jugadores.store') }}" method="POST" class="space-y-4">
+  @csrf
+  <div>
+    <label for="nom" class="block font-bold">Nom:</label>
+    <input type="text" name="nom" id="nom" value="{{ old('nom') }}" class="border p-2 w-full">
+  </div>
+  <div>
+    <label for="equip" class="block font-bold">Equip:</label>
+    <input type="text" name="equip" id="equip" value="{{ old('equip') }}" class="border p-2 w-full">
+  </div>
+  <div>
+    <label for="posicio" class="block font-bold">Posicio:</label>
+    <input type="number" name="posicio" id="posicio" value="{{ old('titols') }}" class="border p-2 w-full">
+  </div>
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Afegir</button>
+</form>
+@endsection
