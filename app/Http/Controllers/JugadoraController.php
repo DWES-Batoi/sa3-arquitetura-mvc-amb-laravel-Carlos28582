@@ -24,9 +24,9 @@ class jugadoraController extends Controller {
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom' => 'required',
-            'equip' => 'required',
-            'posicio' => 'required',
+            'nom' => 'required|min:3',
+            'equip' => 'required|min:2',
+            'posicio' => 'required|in(Portera, Defensa, Migcampista, Davantera)',
             
         ]);
         $jugadores = Session::get('jugadores', $this->jugadores);

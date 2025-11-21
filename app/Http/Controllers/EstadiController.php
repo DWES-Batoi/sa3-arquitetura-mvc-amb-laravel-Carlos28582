@@ -23,9 +23,9 @@ class EstadiController extends Controller {
     {
         $validated = $request->validate([
             'nom' => 'required|min:3',
-            'ciutat' => 'required',
+            'ciutat' => 'required|min:2',
             'capacitat' => 'required|integer|min:0',
-            'equip' => 'required',
+            'equip' => 'required|min:3',
         ]);
         $estadis = Session::get('estadis', $this->estadis);
         $estadis[] = $validated;

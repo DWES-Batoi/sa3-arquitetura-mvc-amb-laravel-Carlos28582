@@ -24,11 +24,11 @@
   </div>
   <div>
     <label for="capacitat" class="block font-bold">Capacitat:</label>
-    <input type="number" name="capacitat" id="titols" value="{{ old('titols') }}" class="border p-2 w-full">
+    <input type="number" name="capacitat" id="capacitat" value="{{ old('capacitat') }}" class="border p-2 w-full">
   </div>
    <div>
-    <label for="capacitat" class="block font-bold">Equip:</label>
-    <input type="text" name="equip" id="equip" value="{{ old('capacitat') }}" class="border p-2 w-full">
+    <label for="equip" class="block font-bold">Equip:</label>
+    <input type="text" name="equip" id="equip" value="{{ old('equip') }}" class="border p-2 w-full">
   </div>
   <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Afegir</button>
 </form>
