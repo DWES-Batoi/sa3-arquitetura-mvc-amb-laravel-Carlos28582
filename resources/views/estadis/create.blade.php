@@ -30,6 +30,6 @@
     <label for="equip" class="block font-bold">Equip:</label>
     <input type="text" name="equip" id="equip" value="{{ old('equip') }}" class="border p-2 w-full">
   </div>
-  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Afegir</button>
+  <button type="submit" class="bg-green-500 text-black px-4 py-2 rounded">Afegir</button>
 </form>
 @endsection

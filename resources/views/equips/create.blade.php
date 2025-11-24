@@ -26,6 +26,6 @@
     <label for="titols" class="block font-bold">Títols:</label>
     <input type="number" name="titols" id="titols" value="{{ old('titols') }}" class="border p-2 w-full">
   </div>
-  <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Afegir</button>
+  <button type="submit" class="bg-rose-600 text-black px-4 py-2 rounded">Afegir</button>
 </form>
 @endsection

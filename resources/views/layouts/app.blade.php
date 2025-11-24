@@ -6,14 +6,14 @@
   <title>@yield('title','Guia de futbol femení')</title>
   @vite(['resources/css/app.css' ])
 </head>
-<body class="font-sans bg-gray-100 text-gray-900">
-  <header class="bg-blue-800 text-white p-4">
+<body class="font-sans bg-black text-white" >
+  <header class="bg-amber-700 text-white p-4">
     @include('partials.menu')
   </header>
   <main class="container mx-auto p-6">
     @yield('content')
   </main>
-  <footer class="bg-blue-800 text-white text-center p-4">
+  <footer class="bg-amber-800 text-white text-center p-4">
     <p>&copy; 2025 Guia de Futbol Femení</p>
   </footer>
 </body>
